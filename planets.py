@@ -32,6 +32,40 @@ print('rocky planets: {}'.format(rocky_planets))
 del planet_list[-1]
 print('no pluto: {}'.format(planet_list))
 
+#Create another list containing tuples.
+#Each tuple will hold the name of a spacecraft that we have launched, 
+#and the names of the planet(s) that it has visited, 
+#or landed on. (e.g. ('Cassini', 'Saturn')).
+space_missions = list()
+space_missions.extend([
+	('a', 'Mercury', 'Venus'),
+	('b', 'Venus'),
+	('c', 'Earth', 'Uranus', 'Neptune', 'Venus'),
+	('d', 'Mars'),
+	('e', 'Jupiter'),
+	('f', 'Saturn', 'Neptune', 'Venus'),
+	('g', 'Uranus')])
+
+#Iterate over your list of planets, 
+#and inside that loop, iterate over the list of tuples. 
+#Print, for each planet, which satellites have visited.
+planets_and_their_satellites = dict()
+for planet in planet_list:
+	planets_and_their_satellites[planet] = list()
+	for mission in space_missions:
+		if planet in mission:
+			planets_and_their_satellites[planet].append(mission[0])
+			print('planets_and_their_satellites: {}'.format(planets_and_their_satellites))
+
+for planet, satellites in planets_and_their_satellites.items():
+	print('{} has been visited by satellites: {}'.format(planet, satellites))
+
+
+
+			
+
+
+
 
 
 
